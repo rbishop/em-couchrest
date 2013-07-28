@@ -6,7 +6,7 @@ describe CouchRest::RestAPI do
 
     subject { CouchRest }
 
-    let(:request) { RestClient::Request }
+    let(:request) { EM::HttpRequest }
     let(:simple_response) { "{\"ok\":true}" }
     let(:parser) { MultiJson }
     let(:parser_opts) { {:max_nesting => false} }
@@ -57,7 +57,7 @@ describe CouchRest::RestAPI do
         CouchRest.get('foo', :accept => :foo)
       end
 
-      it "should forward RestClient options" do
+      it "should forward EM::HttpRequest options" do
         req = {:url => 'foo', :method => :get, :timeout => 1000, :headers => CouchRest.default_headers}
         request.should_receive(:execute).with(req).and_return(simple_response)
         parser.should_receive(:decode).with(simple_response, parser_opts)
@@ -94,8 +94,8 @@ describe CouchRest::RestAPI do
 
 
       it "should forward an exception if raised" do
-        request.should_receive(:execute).and_raise(RestClient::Exception)
-        expect { CouchRest.get('foo') }.to raise_error(RestClient::Exception)
+        request.should_receive(:execute).and_raise(EM::HttpRequest::Exception)
+        expect { CouchRest.get('foo') }.to raise_error(EM::HttpRequest::Exception)
       end
 
       context 'when decode_json_objects is true' do

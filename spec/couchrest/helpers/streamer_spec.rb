@@ -109,7 +109,7 @@ describe CouchRest::Streamer do
       @streamer.get("#{@db.root}/_all_docs?include_docs=true&limit=0") do |row|
         count += 1
       end
-    end.should raise_error(RestClient::ServerBrokeConnection)
+    end.should raise_error(EM::HttpRequest::ServerBrokeConnection)
 
     count.should == 2
   end
