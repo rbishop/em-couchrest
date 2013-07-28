@@ -12,7 +12,7 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 
-require 'rest_client'
+require 'em-synchrony/em-http'
 require 'multi_json'
 
 # Not sure why this is required, so removed until a reason is found!
@@ -20,24 +20,24 @@ $:.unshift File.dirname(__FILE__) unless
  $:.include?(File.dirname(__FILE__)) ||
  $:.include?(File.expand_path(File.dirname(__FILE__)))
 
-require 'couchrest/monkeypatches'
-require 'couchrest/rest_api'
-require 'couchrest/support/inheritable_attributes'
+require 'em-couchrest/monkeypatches'
+require 'em-couchrest/rest_api'
+require 'em-couchrest/support/inheritable_attributes'
 
 require 'forwardable'
 
 # = CouchDB, close to the metal
 module CouchRest
-  autoload :Attributes,   'couchrest/attributes'
-  autoload :Server,       'couchrest/server'
-  autoload :Database,     'couchrest/database'
-  autoload :Document,     'couchrest/document'
-  autoload :Design,       'couchrest/design'
-  autoload :Model,        'couchrest/model'
-  autoload :Pager,        'couchrest/helper/pager'
-  autoload :Streamer,     'couchrest/helper/streamer'
-  autoload :Attachments,  'couchrest/helper/attachments'
-  autoload :Upgrade,      'couchrest/helper/upgrade'
+  autoload :Attributes,   'em-couchrest/attributes'
+  autoload :Server,       'em-couchrest/server'
+  autoload :Database,     'em-couchrest/database'
+  autoload :Document,     'em-couchrest/document'
+  autoload :Design,       'em-couchrest/design'
+  autoload :Model,        'em-couchrest/model'
+  autoload :Pager,        'em-couchrest/helper/pager'
+  autoload :Streamer,     'em-couchrest/helper/streamer'
+  autoload :Attachments,  'em-couchrest/helper/attachments'
+  autoload :Upgrade,      'em-couchrest/helper/upgrade'
 
   # we extend CouchRest with the RestAPI module which gives us acess to
   # the get, post, put, delete and copy

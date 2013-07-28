@@ -10,7 +10,7 @@
 # 
 # Note:
 # to require just this middleware, if you have the gem installed do:
-# require 'couchrest/middlewares/logger'
+# require 'em-couchrest/middlewares/logger'
 #
 # For log processing examples, see examples at the bottom of this file
 
