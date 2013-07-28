@@ -26,7 +26,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{0.1.0}
   s.summary = %q{Asynchronous, Lean and RESTful interface to CouchDB for use with EventMachine}
 
-  s.add_dependency(%q<em-synchrony>, ["~> 1.0.3"])
+  s.add_dependency(%q<em-http-request>, ["~> 1.1"])
+  s.add_dependency(%q<em-synchrony>, ["~> 1.0"])
   s.add_dependency(%q<mime-types>, ["~> 1.15"])
   s.add_dependency(%q<multi_json>, ["~> 1.0"])
   s.add_development_dependency(%q<json>, [">= 1.7.0"])

@@ -2,7 +2,7 @@ require "bundler/setup"
 require "rubygems"
 require "rspec"
 
-require File.join(File.dirname(__FILE__), '..','lib','couchrest')
+require File.join(File.dirname(__FILE__), '..','lib','em-couchrest')
 # check the following file to see how to use the spec'd features.
 
 unless defined?(FIXTURE_PATH)

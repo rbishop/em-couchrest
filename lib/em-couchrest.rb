@@ -12,6 +12,7 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 
+require 'em-http-request'
 require 'em-synchrony/em-http'
 require 'multi_json'
 
